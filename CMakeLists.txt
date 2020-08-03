@@ -1451,7 +1451,7 @@ foreach(_lib ${CMAKE_C_IMPLICIT_LINK_LIBRARIES} ${CURL_LIBS})
       # this information in the .pc file.
       continue()
     endif()
-    get_target_property(_lib "${_libname}" LOCATION)
+    set(_lib $<TARGET_FILE:${_libname}>)
     if(NOT _lib)
       message(WARNING "Bad lib in library list: ${_libname}")
       continue()
